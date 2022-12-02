@@ -27,11 +27,34 @@ function appendFile(filePath, newObj) {
       }
     })
   });
+}
 
+function remove(filePath, id) {
+  return fs.readFile(filePath).then(data => {
+    const obj = JSON.parse(data);
+    const newRes = {};
+
+    for (const [key, value] of Object.entries(obj)) {
+      if (key !== id) {
+        Object.assign(newRes, { [key]: value });
+      }
+    }
+
+    fs.writeFile(filePath, JSON.stringify(newRes), 'utf8', err => {
+      if (err) {
+        console.log(`Error writing file: ${err}`)
+      } else {
+        console.log(`File is written successfully!`)
+        return 'success';
+      }
+    })
+
+  });
 }
 
 module.exports = {
   readFile,
-  appendFile
+  appendFile,
+  remove
 };
 

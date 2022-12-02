@@ -5,8 +5,7 @@ function AllMeetupsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMeetups, setLoadedMeetups] = useState([]);
 
-  useEffect(() => {
-    setIsLoading(true);
+  function load() {
     fetch('/api/v1/meetups')
       .then((response) => response.json())
       .then((data) => {
@@ -21,6 +20,14 @@ function AllMeetupsPage() {
         setIsLoading(false);
         setLoadedMeetups(meetups);
       });
+  }
+
+  function reloadHandler() {
+    load();
+  }
+
+  useEffect(() => {
+    load();
   }, []);
 
   if (isLoading) {
@@ -34,7 +41,7 @@ function AllMeetupsPage() {
   return (
     <section>
       <h1>All Meetups</h1>
-      <MeetupList meetups={loadedMeetups} />
+      <MeetupList meetups={loadedMeetups} reload={reloadHandler} />
     </section>
   );
 }

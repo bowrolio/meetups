@@ -4,7 +4,7 @@ import Card from '../ui/Card';
 import FavouritesContext from '../../store/favourites-context';
 
 function MeetupItem(props) {
-  const { id, title, description, image, address } = props;
+  const { id, title, description, image, address, reload } = props;
   const favouritesCtx = useContext(FavouritesContext);
   const itemIsFavourite = favouritesCtx.itemIsFavourite(id);
 
@@ -22,6 +22,28 @@ function MeetupItem(props) {
     }
   }
 
+  function deleteMeetupHandler() {
+    fetch('/api/v1/meetup', {
+      method: 'DELETE',
+      body: JSON.stringify({ id }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          return Promise.reject();
+        }
+        setTimeout(() => {
+          reload();
+        }, 1000);
+        return Promise.resolve();
+      })
+      .catch(() => {
+        // An error has occurred. Tell the user
+      });
+  }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -34,8 +56,12 @@ function MeetupItem(props) {
           <p>{description}</p>
         </div>
         <div className={classes.actions}>
-          <button type="button" onClick={toggleFavouriteStatusHandler}>
+          <button type='button' onClick={toggleFavouriteStatusHandler}>
             {itemIsFavourite ? 'Remove from Favourites' : 'To Favourites'}
+          </button>
+
+          <button type='button' onClick={deleteMeetupHandler}>
+            Delete
           </button>
         </div>
       </Card>

@@ -11,16 +11,20 @@ function NewMeetupPage() {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(async res => {
-      if (!res.ok) {
-        return Promise.reject();
-      }
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          return Promise.reject();
+        }
 
-      history.replace('/');
-      return Promise.resolve();
-    }).catch(() => {
-      // An error has occurred. Tell the user
-    });
+        setTimeout(() => {
+          history.replace('/');
+        }, 1000);
+        return Promise.resolve();
+      })
+      .catch(() => {
+        // An error has occurred. Tell the user
+      });
   }
 
   return (
