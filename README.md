@@ -4,22 +4,27 @@ Demonstration application demonstrating Node.js / Express backend API and authen
 
 Not production ready.
 
-Node version 18.12.1 `nvm use`
-
 # Quick start
+1. `nvm use` - set node to version 18
+2. `npm run setup` - install dependencies
+3. `npm start` - start backend server
+4. Open `http://localhost:3001` in a browser
 
-- Set node version to 18 `nvm use`
-- Navigate to `/backend`
-- `npm install`
-- `npm start`
-- Open `http://localhost:3001` in a browser
+# ☕ Developer Environment
+From project root directory:
+
+`nvm use` - set node to correct version
+
+`npm run dev` - uplifts frontend React server `http://localhost:3000` and backend node server `http://localhost:3001` concurrently.
+
+`npm run lint` - run lint code analysis
 
 # 🎨 Frontend
 
 ## Available scripts
 `npm install`
 
-Install package dependencies, required on first repo clone.
+Install package dependencies.
 
 `npm start`
 
@@ -42,7 +47,7 @@ Code styling using prettier
 ## Available scripts
 `npm install`
 
-Install package dependencies, required on first repo clone.
+Install package dependencies.
 
 `npm start`
 
