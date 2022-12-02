@@ -1,0 +1,29 @@
+<%- include('head', { title: 'Authentication Example' }) -%>
+
+<div class="main">
+
+  <div class="card">
+    <h1>Login</h1>
+    <%- message %>
+    Authenticate with "james" and "foobar".
+    <form method="post" action="/login" class="form">
+      <div class="control">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+      </div>
+      <div class="control">
+      <p>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password">
+      </p>
+      </div>
+      <div class="actions">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">A simple demonstration application using a Node.js backend for API and authentication with a React frontend.</div>
+</div>
+
+<%- include('foot') -%>
