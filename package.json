@@ -5,7 +5,7 @@
   "scripts": {
     "start": "cd backend && npm start",
     "setup": "(npm install) && (cd frontend && npm install) && (cd backend && npm install)",
-    "dev": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"yellow,blue\" --kill-others \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "dev": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"yellow,blue\" --kill-others \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "lint": "cd frontend && npm run lint"
   },
   "devDependencies": {

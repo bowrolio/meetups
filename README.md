@@ -8,14 +8,14 @@ Not production ready.
 1. `nvm use` - set node to version 18
 2. `npm run setup` - install dependencies
 3. `npm start` - start backend server
-4. Open `http://localhost:3001` in a browser
+4. Open `http://localhost:3001` in a browser 🌐
 
 # ☕ Developer Environment
 From project root directory:
 
 `nvm use` - set node to correct version
 
-`npm run dev` - uplifts frontend React server `http://localhost:3000` and backend node server `http://localhost:3001` concurrently.
+`npm run dev` - uplifts frontend React server `http://localhost:3000` and backend node server `http://localhost:3001` concurrently. Both have hot reloading enabled.
 
 `npm run lint` - run lint code analysis
 
@@ -51,5 +51,9 @@ Install package dependencies.
 
 `npm start`
 
-Run the developer environment. Express will uplift a server on `http://localhost:3001`
+Run a production server. Express will uplift a server on `http://localhost:3001`
+
+`npm run dev`
+
+Run a developer server with hot reloading enabled. Express will uplift a server on `http://localhost:3001`
 
